@@ -1,0 +1,256 @@
+:root {
+  --main-bg-color: #dfe2e6;
+  --border-color: #0288d147;
+  --container-width: 500px;
+}
+
+body,
+html {
+  font-family: syste-ul;
+  background: var(--main-bg-color);
+  height: 100%;
+  overflow: hidden;
+}
+
+body,
+.dropzone,
+.upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload-container,
+.dropzone {
+  flex-direction: column;
+}
+.title {
+  font-size: large;
+}
+
+.dropzone input {
+  display: none;
+}
+body {
+  flex-direction: row;
+}
+.container {
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0px 20px 20px #0000002e;
+}
+
+.dropzone {
+  width: var(--container-width);
+  min-height: 200px;
+  border: 2px dashed var(--border-color);
+  border-radius: 10px;
+  margin: 30px;
+  transition: 0.2s all ease-in;
+}
+
+.dragged.dropzone {
+  background: var(--main-bg-color);
+  border-color: #2196f3;
+}
+
+.icon-container img {
+  width: 75px;
+  position: absolute;
+  transform-origin: bottom;
+  transition: transform 0.25ms ease-in-out;
+  transform-origin: bottom;
+}
+
+.icon-container .center {
+  z-index: 10;
+}
+
+.icon-container .right,
+.icon-container .left {
+  filter: grayscale(0.5);
+  transform: scale(0.9);
+}
+
+.icon-container .center {
+  transform: translateY(-5px);
+}
+
+.icon-container .right {
+  transform: rotate(10deg) translateX(15px) scale(0.9);
+}
+
+.icon-container .left {
+  transform: rotate(-10deg) translateX(-20px) scale(0.9);
+}
+
+/* .dragged .icon-container .center {
+  transform: translateY(-5px);
+} */
+
+#fileInput {
+  display: none;
+}
+
+.browseBtn {
+  color: #2196f3;
+  cursor: pointer;
+}
+
+.progress-container {
+  width: var(--container-width);
+  height: 70px;
+  border: 2px solid var(--main-bg-color);
+  margin-bottom: 25px;
+  border-radius: 10px;
+  display: none;
+}
+
+.progress-container .bg-progress {
+  background-color: var(--main-bg-color);
+  width: 0%;
+  height: 100%;
+  border-radius: 2%;
+  z-index: 1;
+  /* transform: scaleX(0); */
+
+  transition: width 0.25s linear;
+  position: absolute;
+}
+
+.progress-container .inner-container {
+  position: absolute;
+  z-index: 2;
+  margin: 10px 15px;
+  width: calc(100% - 30px);
+}
+
+.percent-container {
+  font-size: 13px;
+  opacity: 0.8;
+  margin: 5px;
+}
+
+.progress-bar {
+  height: 3px;
+  width: 100%;
+  background: #03a9f4;
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.25s linear;
+}
+
+.sharing-container {
+  width: var(--container-width);
+  margin-bottom: 20px;
+  display: none;
+}
+
+p.expire {
+  opacity: 0.7;
+  text-align: center;
+}
+
+.sharing-container .input-container {
+  position: relative;
+}
+.sharing-container .input-container .input {
+  width: 100%;
+  border: 2px dashed var(--border-color);
+  border-radius: 3px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  background: #f5fcff;
+  color: #0000008c;
+}
+
+.input-container img {
+  position: absolute;
+  height: 22px;
+  width: 30px;
+  right: 7px;
+  top: 12px;
+  background: #f7fdff;
+  cursor: pointer;
+}
+
+.email-container {
+  display: flex;
+  align-items: center;
+}
+
+.email-container form {
+  width: 100%;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.email-container .field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 400px;
+  align-items: center;
+  flex-direction: column;
+}
+
+.email-container label {
+  font-size: 18px;
+}
+
+.email-container input {
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  text-align: center;
+}
+
+.email-container input:focus {
+  outline: none;
+}
+
+.email-container button {
+  font-size: 18px;
+  padding: 8px 40px;
+  margin-top: 15px;
+  background: var(--main-bg-color);
+  border: none;
+  border-radius: 5px;
+  color: #607d8b;
+}
+
+.toast {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 60px);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  background: #03a9f4;
+  transition: transform ease-in-out0.2s;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 4px 6px -2px rgba(0, 0, 0, 0.5);
+}
+
+.upload-vector {
+  width: 50vw;
+  height: 50vh;
+  background: url(undraw.svg) no-repeat center;
+  background-size: contain;
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --container-width: 320px;
+  }
+  .upload-vector {
+    display: none;
+  }
+  .email-container .field {
+    flex-direction: column;
+    width: 300px;
+  }
+}
